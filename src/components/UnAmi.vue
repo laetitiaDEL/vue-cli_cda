@@ -1,7 +1,7 @@
 <template>
     <div class="container my-1">
         <ul class="list-group">
-            <h2 class="list-group-item">{{leNom}} {{premiumData ==='1'? '(Ami premium)':'(Ami nul)'}}</h2> 
+            <h2 class="list-group-item">{{leNom}} {{premiumData ? '(Ami premium)':'(Ami nul)'}}</h2> 
             <button @click="afficherPremium" class="btn btn-danger">Premium ?</button>
             <button @click="afficherDetails" class="btn btn-primary">{{detailsVisibles? 'Masquer': 'Afficher'}}</button>           
             <ul v-if="detailsVisibles" class="list-group">
@@ -34,21 +34,21 @@ export default {
             required:true
         },
         premium:{
-            type:String,
+            type:Boolean,
             required:false,
-            default:'0',
-            validator: function(value){return value==='1' || value==='0'}
+            default:false,
+            //validator: function(value){return value==='1' || value==='0'}
         }
     },
     data(){
         return{
             detailsVisibles:false,
-            unPote:{
+            /*unPote:{
                 id:'jojo',
                 name:"jojoLeBarjo",
                 phone:'123 12346 24',
                 email:'jojo@barjo.com',
-            },
+            },*/
             // Pour contourner le pb des props on passe par une data, elle on pourra la modifier dans ce composant
             premiumData: this.premium
         }
@@ -58,12 +58,7 @@ export default {
             this.detailsVisibles = !this.detailsVisibles;
         },
         afficherPremium(){
-            if(this.premiumData ==='1'){
-                this.premiumData = '0';
-            }
-            else{
-                this.premiumData = '1';
-            }
+            this.premiumData = !this.premiumData;
         }
     },
 }
