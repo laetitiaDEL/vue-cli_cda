@@ -73,7 +73,7 @@ export default {
         },
         afficherPremium(){
             //this.premiumData = !this.premiumData;
-            this.$emit("mon-event-premium");
+            this.$emit("mon-event-premium", this.id);
         }
     },
 }
