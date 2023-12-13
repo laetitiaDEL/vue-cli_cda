@@ -44,6 +44,16 @@ export default {
             //validator: function(value){return value==='1' || value==='0'}
         }
     },
+    emits:{
+        'mon-event-premium': function(id){
+            if(id){
+                return true;
+            }else{
+                console.warn("c'est le message d'erreur !");
+                return false;
+            }
+        }
+    },
     data(){
         return{
             detailsVisibles:false,
@@ -63,7 +73,7 @@ export default {
         },
         afficherPremium(){
             //this.premiumData = !this.premiumData;
-            this.$emit("mon-event-premium", this.id);
+            this.$emit("mon-event-premium");
         }
     },
 }

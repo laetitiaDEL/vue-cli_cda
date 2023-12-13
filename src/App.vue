@@ -37,7 +37,7 @@ export default{
     afficherStatusPremium(leIdDansUnAmi){
       const unAmiIdentified = this.lesAmis.find(unAmi=>unAmi.id === leIdDansUnAmi);
       unAmiIdentified.premium = !unAmiIdentified.premium;
-      console.log("Bidule");
+      console.log(unAmiIdentified);
     }
   }
 }
