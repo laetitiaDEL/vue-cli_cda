@@ -58,7 +58,8 @@ export default {
             this.detailsVisibles = !this.detailsVisibles;
         },
         afficherPremium(){
-            this.premiumData = !this.premiumData;
+            //this.premiumData = !this.premiumData;
+            this.$emit("mon-event-premium");
         }
     },
 }
