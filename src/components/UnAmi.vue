@@ -1,7 +1,7 @@
 <template>
     <div class="container my-1">
         <ul class="list-group">
-            <h2 class="list-group-item">{{leNom}} {{premiumData ? '(Ami premium)':'(Ami nul)'}}</h2> 
+            <h2 class="list-group-item">{{leNom}} {{premium ? '(Ami premium)':'(Ami nul)'}}</h2> 
             <button @click="afficherPremium" class="btn btn-danger">Premium ?</button>
             <button @click="afficherDetails" class="btn btn-primary">{{detailsVisibles? 'Masquer': 'Afficher'}}</button>           
             <ul v-if="detailsVisibles" class="list-group">
@@ -21,6 +21,10 @@ export default {
         'premium'
     ],*/
     props:{
+        id:{
+            type:String,
+            required: true,
+        },
         leNom:{
             type:String,
             required:true
@@ -50,7 +54,7 @@ export default {
                 email:'jojo@barjo.com',
             },*/
             // Pour contourner le pb des props on passe par une data, elle on pourra la modifier dans ce composant
-            premiumData: this.premium
+            //premiumData: this.premium
         }
     },
     methods:{
@@ -59,7 +63,7 @@ export default {
         },
         afficherPremium(){
             //this.premiumData = !this.premiumData;
-            this.$emit("mon-event-premium");
+            this.$emit("mon-event-premium", this.id);
         }
     },
 }

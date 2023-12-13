@@ -2,7 +2,7 @@
   <!-- <div class="container"> -->
     <h1 class="text-center">Les Amis</h1>
     <ul class="list-group">
-      <un-ami v-for="unAmi in lesAmis" v-bind:key="unAmi.id" v-bind:leNom="unAmi.name" v-bind:lePhone="unAmi.phone" v-bind:leMail="unAmi.email" v-bind:premium="unAmi.premium" v-on:mon-event-premium="afficherStatusPremium()"></un-ami>
+      <un-ami v-for="unAmi in lesAmis" v-bind:key="unAmi.id" v-bind:id="unAmi.id" v-bind:leNom="unAmi.name" v-bind:lePhone="unAmi.phone" v-bind:leMail="unAmi.email" v-bind:premium="unAmi.premium" v-on:mon-event-premium="afficherStatusPremium(unAmi.id)"></un-ami>
       <!--<un-ami leNom="Gérard Menvuça" lePhone="0987654" leMail="gérard@menvuca.com" premium="0"></un-ami>   
       <un-ami lePhone="0987654" leMail="gérard@menvuca.com" premium="1000"></un-ami>-->
     </ul>
@@ -26,7 +26,7 @@ export default{
             name: 'Janine DeLavega',
             phone: '09876 543 221',
             email: 'janine@delavega.com',
-            premium: false
+            premium: true
 
         },
       ],
@@ -34,8 +34,10 @@ export default{
   },
 
   methods:{
-    afficherStatusPremium(){
-      console.log("ça affiche des trucs !");
+    afficherStatusPremium(leIdDansUnAmi){
+      const unAmiIdentified = this.lesAmis.find(unAmi=>unAmi.id === leIdDansUnAmi);
+      unAmiIdentified.premium = !unAmiIdentified.premium;
+      console.log("Bidule");
     }
   }
 }
