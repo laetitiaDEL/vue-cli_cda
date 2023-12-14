@@ -52,8 +52,8 @@ export default{
         },
 
         effacerAmi(id){
-          //this.lesAmis = this.lesAmis.splice(id,1);
-          this.lesAmis = this.lesAmis.filter((unAmi) => unAmi.id !== id)
+          //this.lesAmis.splice(id,1);
+          this.lesAmis = this.lesAmis.filter((unAmi) => unAmi.id !== id);
         }
     }
 }
