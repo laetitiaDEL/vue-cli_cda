@@ -10,6 +10,12 @@
   </div>
 </template>
 
+<style>
+  h1, h2{
+    font-family: Impact;
+  }
+</style>
+
 <script>
 import LeHeader from './components/LeHeader.vue';
 import BadgeList from './components/BadgeList.vue';
