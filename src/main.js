@@ -1,11 +1,13 @@
 import { createApp } from 'vue';
-import App from './App.vue';
-import activeUser from './components/activeUser';
-import userData from './components/userData';
-// createApp(App).mount('#app')
-//On peut aussi stocker l'appli dans une variable
-const app = createApp(App);
-app.component('active-user',activeUser);
-app.component('user-data',userData);
-app.mount('#app');
 
+import App from './App.vue';
+import BaseBadge from './components/BaseBadge.vue';
+import BadgeList from './components/BadgeList.vue';
+import UserInfo from './components/UserInfo.vue';
+
+const app = createApp(App);
+app.component('base-badge', BaseBadge);
+app.component('badge-list', BadgeList);
+app.component('user-info', UserInfo);
+
+app.mount('#app');

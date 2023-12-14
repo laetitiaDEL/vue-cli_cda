@@ -1,27 +1,29 @@
 <template>
-  <!-- <div class="container"> -->
-    <h1 class="text-center">El Gugus</h1>
-    <active-user v-bind:nom="nom" v-bind:age="age" v-bind:src="src"></active-user>
-    <user-data v-on:maj="setData"></user-data>
-  <!-- </div> -->
+  <div>
+    <le-header></le-header>
+    <badge-list></badge-list>
+    <user-info
+      :full-name="activeUser.name"
+      :info-text="activeUser.description"
+      :role="activeUser.role"
+    ></user-info>
+  </div>
 </template>
 
 <script>
-
-export default{
-    data() {
-        return {
-          nom:"Michmich",
-          age: "58",
-          src: "https://picsum.photos/200"
-        };
-    },
-    methods: {
-      setData(name, age, src){
-        this.nom = name;
-        this.age = age;
-        this.src = src;
-      }
-    }
-}
+import LeHeader from './components/LeHeader.vue';
+export default {
+  components:{
+    'le-header': LeHeader
+  },
+  data() {
+    return {
+      activeUser: {
+        name: 'LOL',
+        description: 'admin du site',
+        role: 'premium',
+      },
+    };
+  },
+};
 </script>
