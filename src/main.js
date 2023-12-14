@@ -1,11 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import NewAmi from './components/NewAmi';
-import UnAmi from './components/UnAmi';
+import activeUser from './components/activeUser';
+import userData from './components/userData';
 // createApp(App).mount('#app')
 //On peut aussi stocker l'appli dans une variable
 const app = createApp(App);
-app.component('new-ami',NewAmi);
-app.component('un-ami',UnAmi);
+app.component('active-user',activeUser);
+app.component('user-data',userData);
 app.mount('#app');
 
