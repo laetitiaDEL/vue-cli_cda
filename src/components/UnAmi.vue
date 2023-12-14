@@ -1,13 +1,17 @@
 <template>
     <div class="container my-1">
         <ul class="list-group">
-            <h2 class="list-group-item">{{leNom}} {{premium ? '(Ami premium)':'(Ami nul)'}}</h2> 
-            <button @click="afficherPremium" class="btn btn-danger">Premium ?</button>
-            <button @click="afficherDetails" class="btn btn-primary">{{detailsVisibles? 'Masquer': 'Afficher'}}</button>           
-            <ul v-if="detailsVisibles" class="list-group">
+            <h2 class="list-group-item">???</h2> 
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button  type="button" class="m-1 btn btn-outline-secondary">👁 ???? Détails</button>
+                <button  type="button" class=" m-1 btn btn-outline-success">⭐️ Premium</button>
+                <button v-on:click="$emit('delete', id)" type="button" class=" m-1 btn btn-outline-danger">🗑 Suppr.</button>
+            </div>
+            <ul  class="list-group">
                 <li class="list-group-item">{{lePhone}}</li>
                 <li class="list-group-item">{{leMail}}</li>
             </ul>
+
         </ul>
     </div> 
 </template>
@@ -44,7 +48,7 @@ export default {
             //validator: function(value){return value==='1' || value==='0'}
         }
     },
-    emits:{
+    /*emits:{
         'mon-event-premium': function(id){
             if(id){
                 return true;
@@ -53,7 +57,11 @@ export default {
                 return false;
             }
         }
-    },
+    },*/
+    emits:[
+        'mon-event-premium',
+        'delete'
+    ],
     data(){
         return{
             detailsVisibles:false,

@@ -3,7 +3,7 @@
     <h1 class="text-center">Les Amis</h1>
     <new-ami v-on:add-ami="ajouterAmi"></new-ami>
     <ul class="list-group">
-      <un-ami v-for="unAmi in lesAmis" v-bind:key="unAmi.id" v-bind:id="unAmi.id" v-bind:leNom="unAmi.name" v-bind:lePhone="unAmi.phone" v-bind:leMail="unAmi.email" v-bind:premium="unAmi.premium" v-on:mon-event-premium="afficherStatusPremium(unAmi.id)"></un-ami>
+      <un-ami v-for="unAmi in lesAmis" v-on:delete="effacerAmi" v-bind:key="unAmi.id" v-bind:id="unAmi.id" v-bind:leNom="unAmi.name" v-bind:lePhone="unAmi.phone" v-bind:leMail="unAmi.email" v-bind:premium="unAmi.premium" v-on:mon-event-premium="afficherStatusPremium"></un-ami>
       <!--<un-ami leNom="Gérard Menvuça" lePhone="0987654" leMail="gérard@menvuca.com" premium="0"></un-ami>   
       <un-ami lePhone="0987654" leMail="gérard@menvuca.com" premium="1000"></un-ami>-->
     </ul>
@@ -49,7 +49,12 @@ export default{
             premium: false
           };
           this.lesAmis.push(newAmiContact);
+        },
+
+        effacerAmi(id){
+          //this.lesAmis = this.lesAmis.splice(id,1);
+          this.lesAmis = this.lesAmis.filter((unAmi) => unAmi.id !== id)
         }
-    },
+    }
 }
 </script>
