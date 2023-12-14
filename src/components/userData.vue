@@ -11,7 +11,7 @@
         </div>      
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Lien image</label>
-            <input v-model="enteredSrc" class="form-control form-control-sm" type="text" placeholder="Votre âge" aria-label=".form-control-sm example">
+            <input v-model="enteredSrc" class="form-control form-control-sm" type="text" placeholder="Votre image" aria-label=".form-control-sm example">
         </div>   
         <button class="btn btn-warning btn-sm col-12 my-1">MAJ des Data</button>
         </form>
