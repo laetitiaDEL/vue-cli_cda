@@ -6,6 +6,7 @@
             <ul  class="list-group">
                 <li class="list-group-item">{{nom}}</li>
                 <li class="list-group-item">{{age}}</li>
+                <li class="list-group-item"><img v-bind:src="src"></li>
             </ul>
 
         </ul>
@@ -17,16 +18,16 @@ export default{
     props:{
         nom:{
             type:String,
-            required: false
+            required: true
         },
         age:{
-            type:Number,
+            type:String,
+            required: true
+        },
+        src:{
+            type:String,
             required: false
         }
-    },
-    data(){
-        return{
-        };
     }
 }
 </script>
