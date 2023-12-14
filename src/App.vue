@@ -12,9 +12,13 @@
 
 <script>
 import LeHeader from './components/LeHeader.vue';
+import BadgeList from './components/BadgeList.vue';
+import UserInfo from './components/UserInfo.vue';
 export default {
   components:{
-    'le-header': LeHeader
+    'le-header': LeHeader,
+    'badge-list': BadgeList,
+    'user-info': UserInfo
   },
   data() {
     return {
